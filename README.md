@@ -148,3 +148,8 @@ Les intégrations Firebase, MongoDB, mail et Gemini nécessitent vos propres pro
 ## Auteure
 
 **Sarra Askri** — projet de fin d’études, Faculté des Sciences de Bizerte, Université de Carthage.
+
+<div align="center">
+<sub>Si ce projet vous est utile, n'hésitez pas à lui laisser une ⭐</sub>
+</div>
+
