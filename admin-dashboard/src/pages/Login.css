@@ -1,0 +1,90 @@
+.login-container {
+ height: 100vh;
+ width: 100vw;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background: linear-gradient(120deg, #1e1e2f, #34495e);
+}
+
+.login-card {
+ background: #fff;
+ padding: 40px 30px;
+ border-radius: 16px;
+ box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+ max-width: 400px;
+ width: 100%;
+ text-align: center;
+}
+
+.login-title {
+ font-size: 24px;
+ margin-bottom: 25px;
+ color: #333;
+}
+
+.login-input {
+ width: 100%;
+ padding: 12px;
+ margin-bottom: 20px;
+ border: 1px solid #ccc;
+ border-radius: 10px;
+ font-size: 16px;
+ outline: none;
+ box-sizing: border-box;
+}
+
+.login-input:focus {
+ border-color: #3498db;
+}
+
+.password-wrapper {
+ position: relative;
+ width: 100%;
+}
+
+.password-wrapper {
+ position: relative;
+ width: 100%;
+}
+
+.password-wrapper .login-input {
+ padding-right: 40px;
+}
+
+.eye-icon {
+ position: absolute;
+ top: 50%;
+ right: 12px;
+ transform: translateY(-50%);
+ cursor: pointer;
+ font-size: 20px;
+ color: #888;
+ transition: color 0.2s ease;
+}
+
+.eye-icon:hover {
+ color: #3498db;
+}
+
+.login-button {
+ width: 100%;
+ padding: 12px;
+ background-color: #3498db;
+ color: white;
+ font-size: 16px;
+ border: none;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: background 0.3s ease;
+}
+
+.login-button:hover {
+ background-color: #2980b9;
+}
+
+.login-footer {
+ margin-top: 15px;
+ font-size: 14px;
+ color: #888;
+}

@@ -1,0 +1,59 @@
+var express = require('express');
+var router = express.Router();
+const userController = require('../controllers/userController');
+const upload = require('../middlewares/uploadFile');
+const { getNutritionStatsByUserId } = require('../controllers/userController');
+
+
+router.post('/addUserAdherent', userController.addUserAdherent); 
+router.post('/addUserAdmin', userController.addUserAdmin); 
+router.get('/getAllUsers', userController.getAllUsers); 
+router.get('/getUserById/:id', userController.getUserById); 
+router.delete('/deleteUserById/:id', userController.deleteUserById);
+router.post('/addUserAdherentWithImg', upload.single('user_image'), userController.addUserAdherentWithImg);
+router.put('/updateUserById/:id', userController.updateUserById); 
+router.get('/searchByUserName', userController.searchByUserName); 
+router.get('/getAllUsersByAge', userController.getAllUsersByAge); 
+router.post('/loginUser', userController.loginUser);
+router.put('/addProfileInformation', userController.addProfileInformation);
+router.post('/handleGoogleSignIn', userController.handleGoogleSignIn);
+router.post('/addMeal', userController.addMeal);
+router.post('/todayMeal', userController.todayMeal);
+router.post('/addMealByAdmin',userController.addMealByAdmin);
+router.put('/updateMealByAdmin/:id',userController.updateMealByAdmin);
+router.delete('/deleteMealByAdmin/:id',userController.deleteMealByAdmin);
+router.get('/getAllMealsByAdmin', userController.getAllMealsByAdmin);
+router.get('/getMealsByType', userController.getMealsByType);
+router.post('/addExercise', userController.addExercise);
+router.get('/getWorkoutsByType/:userId/:type', userController.getWorkoutsByType);
+router.delete('/deletedWorkout/:id', userController.deletedWorkout);
+router.post('/postfornotifications', userController.postfornotifications);
+router.post('/calculate_goal', userController.calculate_goal);
+router.get('/getGoal/:userId', userController.getGoalByUserId);
+router.post('addGoogleUser', userController.addGoogleUser);
+router.post('/login_with_google', userController.login_with_google);
+router.get('/getAdherentById/:id', userController.getAdherentById);
+router.put('update/:id',userController.update);
+router.put('updatePassword/:id',userController.updatePassword);
+router.delete('/deleteAdherent/:id', userController.deleteAdherent);
+router.get('/getGoal_targetWieght/:userId', userController.getGoal_targetWieght);
+router.post('/addProgression',userController.addProgression);
+router.get('/getGoal_tW_imc_ByUserId/:userId', userController.getGoal_tW_imc_ByUserId);
+//yomken id twali userId fli ta7t'ha
+router.get('/getAdherent_Fn_Ln_ById/:id', userController.getAdherent_Fn_Ln_ById);
+router.get('/getTodayNutrition/:userId', userController.getTodayNutrition);
+router.get('/getAdherentDetails/:userId', userController.getAdherentDetails);
+router.put('/updateGoal/:userId', userController.updateGoal);
+router.post('/getAdvice',userController.getAdvice);
+router.get('/getNotifications/:userId',userController.getNotifications);
+router.post('/todayExercice', userController.todayExercice);
+router.delete('/deleteNotification/:notificationId', userController.deleteNotification);
+router.post('/auth/request-reset', userController.requestResetPassword);
+router.post('/auth/verify-otp', userController.verifyResetOtp);
+router.post('/auth/reset-password', userController.resetPassword);
+
+router.get('/getNutritionStats/:id', getNutritionStatsByUserId);
+
+
+module.exports = router; 
+  

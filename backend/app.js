@@ -1,0 +1,114 @@
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+const cors = require('cors');
+const { addUserAdherent, loginUser, addProfileInformation ,addMeal, todayMeal,addMealByAdmin,
+  updateMealByAdmin, deleteMealByAdmin, getAllMealsByAdmin,getMealsByType,addExercise,
+    getWorkoutsByType,deletedWorkout ,postfornotifications,calculate_goal,getGoalByUserId,
+    addGoogleUser,login_with_google,getAdherentById,update,updatePassword,deleteAdherent,
+    getGoal_targetWieght,addProgression,getGoal_tW_imc_ByUserId,getAdherent_Fn_Ln_ById,
+    getTodayNutrition,getAdherentDetails,updateGoal,getAdvice,getNotifications,
+  todayExercice, deleteNotification,
+  getAllUsers,
+  getDashboardStats
+} = require('./controllers/userController'); 
+require("dotenv").config();
+const{connectToMongoDb} = require("./config/db");
+
+const http = require('http');
+
+var indexRouter = require('./routes/indexRouter');
+var usersRouter = require('./routes/usersRouter');
+var osRouter = require('./routes/osRouter');
+var app = express();
+ 
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false })); 
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/os', osRouter); 
+app.use('/api/users', usersRouter);
+
+app.use("/apinot", require("./routes/app.routes"));
+
+app.post('/api/users/register', addUserAdherent);
+app.post('/api/users/login', loginUser);
+app.put('/api/users/addProfileInformation', addProfileInformation);
+
+app.post('/api/users/GoogleSignIn', (req, res) => {
+
+  res.send('Google Sign-In réussi');
+});
+app.post('/api/users/addMeal',addMeal);
+app.post('/api/users/todayMeal', todayMeal);
+app.post('/api/users/addMealByAdmin',addMealByAdmin);
+app.put('/api/users/updateMealByAdmin/:id',updateMealByAdmin);
+app.delete('/api/users/deleteMealByAdmin/:id',deleteMealByAdmin);
+app.get('/api/users/getAllMealsByAdmin', getAllMealsByAdmin);
+app.get('/api/users/getMealsByType', getMealsByType);
+app.post('/api/users/addExercise', addExercise);
+app.get('/api/users/getWorkoutsByType', getWorkoutsByType);
+app.delete('/api/users/deletedWorkout/:id', deletedWorkout);
+app.post('/api/users/postfornotifications', postfornotifications);
+app.post('/api/users/calculate_goal', calculate_goal);
+app.get('/api/users/getGoal', getGoalByUserId);
+app.post('/api/users/addGoogleUser', addGoogleUser);
+app.post('/api/users/login_with_google', login_with_google);
+app.get('/api/users/getAdherentById/:id', getAdherentById);
+app.put('/api/users/update/:id', update);
+app.put('/api/users/updatePassword/:id', updatePassword);
+app.delete('/api/users/deleteAdherent/:id', deleteAdherent);
+app.get('/api/users/getGoal_targetWieght/:id',getGoal_targetWieght);
+app.post('/api/users/addProgression',addProgression);
+app.get('/api/users/getGoal_tW_imc_ByUserId',getGoal_tW_imc_ByUserId);
+app.get('/api/users/getAdherent_Fn_Ln_ById/:id', getAdherent_Fn_Ln_ById);
+app.get('/api/users/getTodayNutrition/:id', getTodayNutrition);
+app.get('/api/users/getAdherentDetails/:id', getAdherentDetails);
+app.put('/api/users/updateGoal/:id', updateGoal);
+app.post('/api/users/getAdvice',getAdvice);
+app.get('/api/users/getNotifications/:userId',getNotifications);
+app.post('/api/users/todayExercice',todayExercice);
+app.delete('/api/users/deleteNotification',deleteNotification);
+
+
+app.get('/api/users/dashboard/stats', getDashboardStats)
+
+
+app.get('/api/users/all-users', getAllUsers);
+
+
+const conseilRoutes = require('./routes/conseil.routes');
+app.use('/api/advices', conseilRoutes);
+app.use(function (req, res, next) {
+  next(createError(404)); 
+});
+
+
+app.use(function (err, req, res, next) {
+ 
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  res.status(err.status || 500);
+  res.status(500).json({ error: 'Internal Server Error' });
+
+});
+ 
+
+
+const server = http.createServer(app);
+server.listen(process.env.port, () => {
+  connectToMongoDb(),
+   console.log('app is running on port 5003') });

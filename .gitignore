@@ -1,0 +1,36 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+**/serviceAccountKey.json
+**/push-notification-key.json
+**/firebase-key.json
+**/*private-key*.json
+**/*.pem
+**/*.key
+
+# Dependencies and generated build output
+**/node_modules/
+**/.dart_tool/
+**/.pub-cache/
+**/build/
+**/dist/
+**/.gradle/
+**/.cxx/
+**/coverage/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+
+# Local machine configuration and editor files
+**/local.properties
+**/.idea/
+**/.vscode/
+.DS_Store
+Thumbs.db
+
+# Screenshots with local test account data
+mobile-app/flutter_*.png
+mobile-app/assets/images/CAP_files/

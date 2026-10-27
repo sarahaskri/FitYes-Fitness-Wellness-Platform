@@ -1,0 +1,112 @@
+.advice-page {
+ padding: 20px;
+ position: relative;
+}
+
+.advice-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 20px;
+}
+
+.create-btn {
+ background-color: #2ecc71;
+ color: white;
+ border: none;
+ padding: 10px 14px;
+ border-radius: 6px;
+ cursor: pointer;
+ font-size: 14px;
+}
+
+.create-btn:hover {
+ background-color: #27ae60;
+}
+
+.advice-table {
+ width: 100%;
+ border-collapse: collapse;
+ background: white;
+ border-radius: 8px;
+ box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.advice-table th, .advice-table td {
+ padding: 12px 16px;
+ text-align: left;
+ border-bottom: 1px solid #eee;
+ vertical-align: top;
+}
+
+.advice-table th {
+ background-color: #f9f9f9;
+ font-weight: 600;
+ color: #2c3e50;
+}
+
+.delete-btn {
+ background-color: #e74c3c;
+ color: white;
+ border: none;
+ padding: 6px 12px;
+ border-radius: 5px;
+ cursor: pointer;
+ font-size: 13px;
+}
+
+.delete-btn:hover {
+ background-color: #c0392b;
+}
+
+/* Floating modal */
+.floating-modal {
+ position: absolute;
+ top: 80px;
+ left: 50%;
+ transform: translateX(-50%);
+ z-index: 100;
+ background: white;
+ border-radius: 12px;
+ box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+ padding: 24px;
+ width: 100%;
+ max-width: 450px;
+}
+
+.modal h2 {
+ margin-top: 0;
+ margin-bottom: 20px;
+ text-align: center;
+}
+
+.advice-form select,
+.advice-form textarea {
+ width: 100%;
+ margin-bottom: 14px;
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 6px;
+ font-size: 14px;
+ resize: none;
+}
+
+.form-actions {
+ display: flex;
+ justify-content: space-between;
+ gap: 10px;
+}
+
+.cancel-btn {
+ background-color: #bbb;
+ color: white;
+ border: none;
+ padding: 10px 14px;
+ border-radius: 6px;
+ cursor: pointer;
+ font-size: 14px;
+}
+
+.cancel-btn:hover {
+ background-color: #999;
+}

@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "709810362183",
+    "project_id": "pushnotofaction",
+    "storage_bucket": "pushnotofaction.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709810362183:android:5f0341c3e3123ace309e62",
+        "android_client_info": {
+          "package_name": "com.example.fityesNV"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709810362183-9g11t5tnolcu9jip24r04ghbneaf4150.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fityesNV",
+            "certificate_hash": "add5b019e8a47fd2a772142ede25f897f103ff50"
+          }
+        },
+        {
+          "client_id": "709810362183-pddouvb2enfn6jje8vivva3ds39688f0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb6zS9VJS09qtUkRfqENQ7QDyeghIGqw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709810362183-pddouvb2enfn6jje8vivva3ds39688f0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "709810362183-82qega714301f205c0rgfc3ru6cafeg6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fityes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
